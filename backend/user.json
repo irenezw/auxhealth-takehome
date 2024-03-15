@@ -14,7 +14,7 @@
         "11": false,
         "14": false,
         "22": true,
-        "23": true,
+        "23": false,
         "59": false,
         "13": false,
         "29": true,
@@ -28,7 +28,8 @@
         "18": true,
         "30": true,
         "27": true,
-        "34": true
+        "34": true,
+        "19": true
     },
     "likedCommentsIds": {
         "1": true
