@@ -61,7 +61,7 @@ function Feed() {
 
   return (
     <>
-      <div className="feed bg-base-100 p-1">
+      <div className="feed w-3/4 bg-base-100 p-1 pt-0 mt-0">
         {loadedPosts.map((post, index) =>
           <Post
             key={index} // It's better if post has a unique identifier to use as a key
@@ -78,8 +78,8 @@ function Feed() {
             requestData={requestData}
           />
           )}
-          </div>
           {hasMore && <div>Loading more posts...</div>}
+          </div>
     </>
   );
 }

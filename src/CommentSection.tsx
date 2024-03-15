@@ -1,8 +1,8 @@
 import { React, FC } from 'react';
 import Comment from './Comment.tsx';
-// import moment from 'moment';
 
-// import { ChatBubbleOvalLeftIcon, HeartIcon, BookmarkIcon } from '@heroicons/react/20/solid'
+
+import {PaperAirplaneIcon } from '@heroicons/react/20/solid'
 
 type CommentProps = {
   id: number;
@@ -30,18 +30,27 @@ const CommentSection: FC<CommentProps> = ({ comments }) => {
 
           ))
         }
-        <div>
-          <label htmlFor="name" className="ml-px block pl-4 text-sm font-medium leading-6 text-gray-900">
-            Name
+        <div className="flex py-2">
+          <label htmlFor="comment" className="self-center block pl-3 py-2 text-l font-medium leading-6 text-gray-900">
+            <div className="avatar placeholder ">
+              <div className="self-center bg-neutral text-neutral-content rounded-full h-full p-1.5">
+                <span className="text-l">Me</span>
+              </div>
+            </div>
           </label>
-          <div className="mt-2">
+          <div className="flex pl-2 self-center">
             <input
               type="text"
-              name="name"
-              id="name"
-              className="block w-full rounded-full border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              placeholder="Jane Smith"
+              name="comment"
+              id="comment"
+              className="block w-full bg-gray-200 rounded-full border-0 px-4  py-1.5 text-gray-900  sm:text-sm sm:leading-6
+              focus:ring-1
+              focus:ring-inset
+              focus:ring-accent
+              "
+              placeholder="Write a comment..."
             />
+            <PaperAirplaneIcon className="self-center h-8"/>
           </div>
         </div>
       </div>

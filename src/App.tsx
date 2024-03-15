@@ -1,7 +1,9 @@
-import { useEffect } from 'react';
+import { react, useEffect } from 'react';
 import './App.css';
 import Feed from './Feed.tsx'
 import Header from './Header.tsx'
+
+import LeftMenu from './LeftMenu.tsx'
 
 
 function App() {
@@ -12,8 +14,17 @@ function App() {
 
   return (
     <>
-      <Header />
-      <Feed />
+      <div>
+        <Header />
+        <div className="flex">
+
+          <LeftMenu />
+          <Feed />
+        </div>
+
+      </div>
+
+
     </>
   );
 }
