@@ -16,7 +16,7 @@ const CommentSection: FC<CommentProps> = ({ comments }) => {
 
 
   return (
-    <div className="mx-6 pt-5 pb-2">
+    <div className="mx-6 pt-3 pb-2">
       <div >
         {
           Object.values(comments).map(comment => (

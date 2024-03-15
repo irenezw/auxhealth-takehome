@@ -38,7 +38,7 @@ const Comment: FC<CommentProps> = ({ id, parent_id, display_name, text, created_
 
 
   return (
-    <div className="comment mx-4" key={id}>
+    <div className="comment mx-4 py-2" key={id}>
       <div className="comment-header flex">
         <p className="font-semibold text-sm  ">{display_name}</p>
         <p className="ml-3 text-secondary text-sm  self-center"> {timestamp}</p>
