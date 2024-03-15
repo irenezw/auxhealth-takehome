@@ -8,7 +8,6 @@ import { ChatBubbleOvalLeftIcon, HeartIcon, BookmarkIcon } from '@heroicons/reac
 
 const PostTitle = ({ title }) => {
 
-
   const titleDataAndText = {};
 
   const clipAuthorData = (title) => {
@@ -31,22 +30,19 @@ const PostTitle = ({ title }) => {
   };
 
   clipAuthorData(title)
-  console.log(titleDataAndText)
-  // Remember to define 'title' when calling the function, for example:
-
 
   return (
     <div className="flex">
-    <div className="avatar-placeholder mr-3">
-      <div className="bg-neutral text-neutral-content rounded-full w-8 h-8 flex items-center justify-center">
-        <span className="text-xs">{titleDataAndText.authorData}</span>
+      <div className="avatar-placeholder mr-3">
+        <div className="bg-neutral text-neutral-content rounded-full w-8 h-8 flex items-center justify-center">
+          <span className="text-xs">{titleDataAndText.authorData}</span>
+        </div>
+      </div>
+      <div>
+        {titleDataAndText.postTitle}
       </div>
     </div>
-    <div>
-      {titleDataAndText.postTitle}
-    </div>
-  </div>
-      );
+  );
 }
 
-      export default PostTitle;
+export default PostTitle;

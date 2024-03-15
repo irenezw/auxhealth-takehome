@@ -3,8 +3,9 @@ import moment from 'moment';
 import './App.css'
 import CommentSection from './CommentSection.tsx'
 import PostTitle from './PostTitle.tsx';
+import PostButtonGroup from './PostButtonGroup.tsx'
 
-import { ChatBubbleOvalLeftIcon, HeartIcon, BookmarkIcon } from '@heroicons/react/20/solid'
+// import { ChatBubbleOvalLeftIcon, HeartIcon, BookmarkIcon } from '@heroicons/react/20/solid'
 
 
 type PostProps = {
@@ -47,8 +48,8 @@ const Post: FC<PostProps> = ({
   const [commentView, setCommentView] = useState<boolean>(false);
 
 
-  //TODO: this button could be used in a better way than this
-  const button = "flex rounded px-2 pl-0 text-xs font-semibold text-secondary -sm hover:text-neutral pb-3"
+  // //TODO: this button could be used in a better way than this
+  // const button = "flex rounded px-2 pl-0 text-xs font-semibold text-secondary -sm hover:text-neutral pb-3"
   const timestamp = moment(created_at).fromNow()
 
   // Update useEffect to respond to changes in initialNumHugs if they come from outside
@@ -110,34 +111,15 @@ const Post: FC<PostProps> = ({
           <p className="pt-desc">{patient_description}</p>
         </div>
         <div className="post-footer card-actions flex justify-between mx-4">
-          <div id="interact-buttons " className="flex w-3/4">
-            <button
-              className={button}
-              onClick={() => toggleHug(index)}
-            >
-              <HeartIcon
-                className={`${hugState ? 'text-red-500' : 'text-current'} h-6 w-6`}
-              />
-              <p className="self-center px-1">
-                {numHugs} Hugs
-              </p>
-            </button>
-            <button
-              className={button}
-              onClick={toggleCommentView}>
-              <ChatBubbleOvalLeftIcon
-                className="ml-0.5 h-5 w-5" />
-              <p className="self-center px-1">
-                {Object.keys(comments).length} Comments
-              </p>
-            </button>
-            <button className={button}>
-              <BookmarkIcon className="ml-0.5 h-5 w-5" />
-              <p className="self-center px-1">
-                Save
-              </p>
-            </button>
-          </div>
+          <PostButtonGroup
+            toggleHug={toggleHug}
+            numHugs={numHugs}
+            toggleCommentView={toggleCommentView}
+            comments={comments}
+            hugState={hugState}
+            numHugs={numHugs}
+            index={index}
+          />
           <div className="self-center text-secondary text-sm">
             {timestamp}
           </div>
