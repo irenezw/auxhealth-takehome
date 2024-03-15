@@ -16,7 +16,7 @@ function App() {
     <>
       <div>
         <Header />
-        <div className="flex">
+        <div className="flex ">
 
           <LeftMenu />
           <Feed />

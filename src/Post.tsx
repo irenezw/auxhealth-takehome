@@ -97,7 +97,7 @@ const Post: FC<PostProps> = ({
   return (
     <div className="post card lg:card-side m-3">
       <div className="collapse bg-white">
-        <input type="checkbox" name="post-accordian" />
+        <input type="checkbox" name="post-accordian" className="w-full h-full" />
         <div className="collapse-title text-xl font-medium">
           <h2 className="post-header card-title">
             {title}
