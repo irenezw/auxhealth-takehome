@@ -98,7 +98,7 @@ const Post: FC<PostProps> = ({
   }
 
   return (
-    <div className="post card lg:card-side m-3">
+    <div className="post card lg:card-side m-3 shadow-md">
       <div className="collapse bg-white">
         <input type="checkbox" name="post-accordian" className="w-full h-full" />
         <div className="collapse-title text-xl font-medium">
@@ -110,7 +110,7 @@ const Post: FC<PostProps> = ({
         <div className="collapse-content">
           <p className="pt-desc">{patient_description}</p>
         </div>
-        <div className="post-footer card-actions flex justify-between mx-4">
+        <div className="post-footer card-actions flex justify-between mx-5">
           <PostButtonGroup
             toggleHug={toggleHug}
             numHugs={numHugs}

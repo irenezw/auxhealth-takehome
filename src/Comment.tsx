@@ -1,7 +1,8 @@
 import { FC, useState } from 'react';
 import moment from 'moment';
 
-import { ChatBubbleOvalLeftIcon, HeartIcon } from '@heroicons/react/20/solid'
+// import { ChatBubbleOvalLeftIcon, HeartIcon } from '@heroicons/react/20/solid'
+import CommentButtonGroup from './CommentButtonGroup';
 
 type CommentProps = {
   id: number;
@@ -16,7 +17,6 @@ const Comment: FC<CommentProps> = ({ id, parent_id, display_name, text, created_
 
   const [hugState, setHugState] = useState<boolean>(false);
 
-  const button = "flex rounded  px-2 pl-0  text-xs font-semibold text-secondary -sm hover:text-neutral "
   const timestamp = moment(created_at).fromNow()
 
   const toggleHug = (index: number) => {
@@ -36,39 +36,24 @@ const Comment: FC<CommentProps> = ({ id, parent_id, display_name, text, created_
   };
 
 
-
   return (
-    <div className="comment mx-4 py-2" key={id}>
-      <div className="comment-header flex">
-        <p className="font-semibold text-sm  ">{display_name}</p>
-        <p className="ml-3 text-secondary text-sm  self-center"> {timestamp}</p>
+    <div className="comment flex  my-2 px-3 ml-1 mr-3 py-2 " key={id}>
+      <div className="avatar placeholder h-full mr-2 mt-1">
+        <div className="bg-neutral text-neutral-content rounded-full w-8">
+          <span className="text-xs">{display_name[0]}</span>
+        </div>
       </div>
-      <p className="comment-text">{text}</p>
-      <div id="comment-interact-buttons " className="flex w-3/4 ">
-        <button
-          className={button}
-          // onClick={() => toggleHug(index)}
-          // onClick={() => toggleHug()}
-        >
-          <HeartIcon
-            className={`${hugState ? 'text-red-500' : 'text-current'} h-6 w-6`}
-          />
-          <p className="self-center px-1">
-            Hugs
-          </p>
-        </button>
-        <button
-          className={button}
-        // onClick={toggleCommentView}
-        >
-
-          <ChatBubbleOvalLeftIcon
-            className="ml-0.5 h-5 w-5" />
-          <p className="self-center px-1">
-            {/* {Object.keys(comments).length} Comments */}
-            Comments
-          </p>
-        </button>
+      <div className="rounded-2xl bg-base-100 p-3">
+        <div className="comment-header flex">
+          <p className="font-semibold text-sm  ">{display_name}</p>
+          <p className="ml-3 text-secondary text-xs self-center"> {timestamp}</p>
+        </div>
+        <p className="comment-text">{text}</p>
+        <CommentButtonGroup
+          hugState={hugState}
+          // toggleHug={toggleHug}
+          id={id}
+        />
       </div>
     </div>
   );
