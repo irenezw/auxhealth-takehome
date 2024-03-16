@@ -1,7 +1,7 @@
 # Get started
-1. Start virtual environment and install dependencies
   - clone this repo
   - cd into aux-health folder
+1. Start virtual environment and install dependencies
   - python3 -m venv venv  # Create a virtual environment
   - source venv/bin/activate  # Activate virtual environment (Unix/macOS)
   - .\venv\Scripts\activate  # Activate virtual environment (Windows)
