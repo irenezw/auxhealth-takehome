@@ -1,12 +1,9 @@
-import { React, FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import moment from 'moment';
 import './App.css'
 import CommentSection from './CommentSection.tsx'
 import PostTitle from './PostTitle.tsx';
 import PostButtonGroup from './PostButtonGroup.tsx'
-
-// import { ChatBubbleOvalLeftIcon, HeartIcon, BookmarkIcon } from '@heroicons/react/20/solid'
-
 
 type PostProps = {
   index: number;
@@ -17,12 +14,11 @@ type PostProps = {
   patient_description: string;
   assessment: string;
   question: string;
-  comments: Record<string, Comment>; // use Record when keys are not static
-  requestData: () => void;
-
+  comments: Record<number, CommentPost>;
+  isHuggedByUser: boolean;
 };
 
-type Comment = {
+export type CommentPost = {
   id: number;
   parent_id: number | null;
   display_name: string;
@@ -32,35 +28,30 @@ type Comment = {
 
 const Post: FC<PostProps> = ({
   index,
-  // post_url,
   title,
   created_at,
   num_hugs: initialNumHugs,
   patient_description,
-  // assessment,
-  // question,
   comments,
   isHuggedByUser,
-  // requestData
 }) => {
   const [hugState, setHugState] = useState<boolean>(false);
-  const [numHugs, setNumHugs] = useState<number>(initialNumHugs); // maintain the state locally
+  const [numHugs, setNumHugs] = useState<number>(initialNumHugs);
   const [commentView, setCommentView] = useState<boolean>(false);
 
   const timestamp = moment(created_at).fromNow()
 
-  // Update useEffect to respond to changes in initialNumHugs if they come from outside
   useEffect(() => {
     setHugState(isHuggedByUser);
-    setNumHugs(initialNumHugs); // Ensure local state is updated if prop changes
+    setNumHugs(initialNumHugs);
   }, [isHuggedByUser, initialNumHugs]);
 
   /* TOGGLE HUG */
   const toggleHug = (index: number) => {
     const newHugState = !hugState;
-    setHugState(newHugState); // This updates the local state
+    setHugState(newHugState);
 
-    const newHugCount = newHugState ? numHugs + 1 : numHugs - 1; // Calculate based on the new state
+    const newHugCount = newHugState ? numHugs + 1 : numHugs - 1;
 
     const requestOptions = {
       method: 'PUT',
@@ -88,11 +79,9 @@ const Post: FC<PostProps> = ({
       });
   };
 
-
-  /* TOGGLE COMMENT VIEW */
+  /* TOGGLE COMMENT VIEW (AND CHECKBOX OF ACCORDIAN)*/
   const toggleCommentView = () => {
-    setCommentView(!commentView); // Toggle visibility of comments and checkbox status
-
+    setCommentView(!commentView);
   }
 
   return (
@@ -115,11 +104,10 @@ const Post: FC<PostProps> = ({
         <div className="post-footer align-middle card-actions flex justify-between mx-5">
           <PostButtonGroup
             toggleHug={toggleHug}
-            numHugs={numHugs}
+            num_hugs={numHugs}
             toggleCommentView={toggleCommentView}
             comments={comments}
             hugState={hugState}
-            numHugs={numHugs}
             index={index}
           />
           {/* Timestamp */}

@@ -1,11 +1,19 @@
-import {React} from 'react';
-
 import { ChatBubbleOvalLeftIcon, HeartIcon, BookmarkIcon } from '@heroicons/react/20/solid'
 
+import {CommentPost} from './Post.tsx'
 
-const PostButtonGroup = ({
+export type PostButtonGroupProps = {
+  toggleHug: (index:number) => void;
+  num_hugs: number;
+  toggleCommentView: () => void;
+  comments: Record<number, CommentPost>;
+  hugState: boolean
+  index: number;
+};
+
+const PostButtonGroup: React.FC<PostButtonGroupProps> = ({
   toggleHug,
-  numHugs,
+  num_hugs,
   toggleCommentView,
   comments,
   hugState,
@@ -24,7 +32,7 @@ const PostButtonGroup = ({
                 className={`${hugState ? 'text-red-500' : 'text-current'} h-6 w-6`}
               />
               <p className="self-center px-1">
-                {numHugs} Hugs
+                {num_hugs} Hugs
               </p>
             </button>
             <button

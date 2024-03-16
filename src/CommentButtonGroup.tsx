@@ -1,10 +1,9 @@
-import { React } from 'react'
 import { ChatBubbleOvalLeftIcon, HeartIcon } from '@heroicons/react/20/solid'
 
 const CommentButtonGroup = (
   hugState,
   // toggleHug,
-  id
+  // id
 ) => {
 
   const button = "flex rounded  px-2 pl-0  text-xs font-semibold text-secondary -sm hover:text-neutral "
