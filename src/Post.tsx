@@ -110,7 +110,7 @@ const Post: FC<PostProps> = ({
         <div className="collapse-content">
           <p className="pt-desc">{patient_description}</p>
         </div>
-        <div className="post-footer card-actions flex justify-between mx-5">
+        <div className="post-footer align-middle card-actions flex justify-between mx-5">
           <PostButtonGroup
             toggleHug={toggleHug}
             numHugs={numHugs}
@@ -120,7 +120,8 @@ const Post: FC<PostProps> = ({
             numHugs={numHugs}
             index={index}
           />
-          <div className="self-center text-secondary text-sm">
+          {/* Timestamp */}
+          <div className="timestamp  text-secondary text-sm">
             {timestamp}
           </div>
         </div>

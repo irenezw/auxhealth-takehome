@@ -13,7 +13,7 @@ const CommentInput = () => {
         </div>
       </label>
       {/* Text input */}
-      <div className="flex pl-2 self-center w-full relative">
+      <div className="flex pl-3 self-center w-full relative">
         <input
           type="text"
           name="comment"

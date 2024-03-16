@@ -14,6 +14,8 @@
 2. spin up app
   - npm run dev
 
+# Notes
+- currently UI is not suitable for devices smaller than an iPad mini
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

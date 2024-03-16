@@ -32,8 +32,8 @@ const PostTitle = ({ title }) => {
   clipAuthorData(title)
 
   return (
-    <div className="flex">
-      <div className="avatar-placeholder mr-3">
+    <div className="flex ">
+      <div className="avatar-placeholder mr-3 self-center">
         <div className="bg-neutral text-neutral-content rounded-full w-8 h-8 flex items-center justify-center">
           <span className="text-xs">{titleDataAndText.authorData}</span>
         </div>
