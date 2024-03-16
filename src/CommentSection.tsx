@@ -1,4 +1,4 @@
-import { React, FC } from 'react';
+import { React, FC, useState } from 'react';
 import Comment from './Comment.tsx';
 import CommentInput from './CommentInput.tsx';
 
@@ -14,6 +14,8 @@ type CommentProps = {
 const CommentSection: FC<CommentProps> = ({ comments }) => {
 
   const [currComments, setCurrComments] = useState(comments);
+
+  console.log(currComments)
 
   const submitComment = () => {
     //loading animation
