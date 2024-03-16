@@ -1,6 +1,6 @@
-import { FC, useState } from 'react';
-import Comment from './Comment';
-import CommentInput from './CommentInput';
+import { React, FC, useState } from 'react';
+import Comment from './Comment.tsx';
+import CommentInput from './CommentInput.tsx';
 
 export type CommentType = {
   id: number;
@@ -13,6 +13,8 @@ export type CommentType = {
 const CommentSection: FC<CommentProps> = ({ comments }) => {
 
   const [currComments, setCurrComments] = useState(comments);
+
+  console.log(currComments)
 
   const submitComment = () => {
     //loading animation
