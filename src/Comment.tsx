@@ -14,13 +14,13 @@ type CommentProps = {
 const Comment: FC<CommentProps> = ({ id, parent_id, display_name, text, created_at }) => {
 
   // const [hugState, setHugState] = useState<boolean>(false);
+  // const [hugState, setHugState] = useState<boolean>(false);
 
   const timestamp = moment(created_at).fromNow()
 
   // const toggleHug = (index: number) => {
   //   setHugState(!hugState);
   // };
-
 
   return (
     <div className={parent_id ? "subComment flex my-2 px-3 ml-12 mr-3 py-1" : "comment flex my-2 px-3 ml-1 mr-3 py-1" }key={id}>
@@ -36,6 +36,8 @@ const Comment: FC<CommentProps> = ({ id, parent_id, display_name, text, created_
         </div>
         <p className="comment-text">{text}</p>
         <CommentButtonGroup
+          // hugState={hugState}
+          // id={id}
           // hugState={hugState}
           // id={id}
         />
