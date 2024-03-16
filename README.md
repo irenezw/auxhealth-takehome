@@ -5,7 +5,9 @@
   - python3 -m venv venv  # Create a virtual environment
   - source venv/bin/activate  # Activate virtual environment (Unix/macOS)
   - .\venv\Scripts\activate  # Activate virtual environment (Windows)
-  - pip install -r requirements.txt
+  -
+
+  pip install -r requirements.txt
 2. set up frontend
   - npm install
 
