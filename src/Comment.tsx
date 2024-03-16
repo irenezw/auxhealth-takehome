@@ -21,6 +21,7 @@ const Comment: FC<CommentProps> = ({ id, parent_id, display_name, text, created_
   //   setHugState(!hugState);
   // };
 
+
   return (
     <div className={parent_id ? "subComment flex my-2 px-3 ml-12 mr-3 py-1" : "comment flex my-2 px-3 ml-1 mr-3 py-1" }key={id}>
       <div className="avatar placeholder h-full mr-3 mt-1">
