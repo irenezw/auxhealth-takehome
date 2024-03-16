@@ -47,9 +47,6 @@ const Post: FC<PostProps> = ({
   const [numHugs, setNumHugs] = useState<number>(initialNumHugs); // maintain the state locally
   const [commentView, setCommentView] = useState<boolean>(false);
 
-
-  // //TODO: this button could be used in a better way than this
-  // const button = "flex rounded px-2 pl-0 text-xs font-semibold text-secondary -sm hover:text-neutral pb-3"
   const timestamp = moment(created_at).fromNow()
 
   // Update useEffect to respond to changes in initialNumHugs if they come from outside
@@ -94,13 +91,18 @@ const Post: FC<PostProps> = ({
 
   /* TOGGLE COMMENT VIEW */
   const toggleCommentView = () => {
-    Object.keys(comments).length > 0 ? setCommentView(!commentView) : null;
+    setCommentView(!commentView); // Toggle visibility of comments and checkbox status
+
   }
 
   return (
     <div className="post card lg:card-side m-3 shadow-md">
       <div className="collapse bg-white">
-        <input type="checkbox" name="post-accordian" className="w-full h-full" />
+        <input
+          type="checkbox"
+          name="post-accordian"
+          checked={commentView}
+          className="w-full h-full" />
         <div className="collapse-title text-xl font-medium">
           <h2 className="post-header card-title">
             {/* {title} */}

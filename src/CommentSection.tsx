@@ -13,6 +13,44 @@ type CommentProps = {
 
 const CommentSection: FC<CommentProps> = ({ comments }) => {
 
+  const [currComments, setCurrComments] = useState(comments);
+
+  const submitComment = () => {
+    //loading animation
+    const requestOptions = {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'mode': 'no-cors',
+      },
+      body: JSON.stringify({
+        // {commentIndex}: {
+        "id": 5,
+        "parent_id": null,
+        "display_name": "Irene",
+        "text": "I think she's pregnant lmao",
+        "created_at": "2024-03-11T01:16:31.087576"
+      })
+    };
+
+    // PUT request to change hug count
+    fetch(`http://127.0.0.1:8000/posts/${index}`, requestOptions)
+      .then(response => {
+        if (response.ok) {
+          response.json()
+        } else {
+          setHugState(!newHugState);
+        }
+      })
+    .then(response => response.json())
+    .then(data => {
+      setcurrComments(data);
+    })
+      .catch(error => {
+        console.error('Error hugging post', error);
+      });
+  }
+
 
   return (
     <div className="mx-6 pt-3 pb-2">
@@ -31,7 +69,7 @@ const CommentSection: FC<CommentProps> = ({ comments }) => {
 
           ))
         }
-      <CommentInput
+        <CommentInput
 
         />
       </div >
