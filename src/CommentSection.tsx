@@ -16,43 +16,43 @@ type CommentSectionProps = {
 
 const CommentSection: FC<CommentSectionProps> = ({ comments }) => {
 
-  const [currComments, setCurrComments] = useState([]);
+  // const [currComments, setCurrComments] = useState([]);
 
-  const nestComments = (commentsObj) => {
-    const comments = Object.values(commentsObj);
-    const nestedComments = {};
-    const childComments = [];
+  // const nestComments = (commentsObj) => {
+  //   const comments = Object.values(commentsObj);
+  //   const nestedComments = {};
+  //   const childComments = [];
 
-    // Separate parent and child comments
-    comments.forEach(comment => {
-      if (comment.parent_id === null) {
-        nestedComments[comment.id] = { ...comment, children: [] };
-      } else {
-        childComments.push(comment);
-      }
-    });
+  //   // Separate parent and child comments
+  //   comments.forEach(comment => {
+  //     if (comment.parent_id === null) {
+  //       nestedComments[comment.id] = { ...comment, children: [] };
+  //     } else {
+  //       childComments.push(comment);
+  //     }
+  //   });
 
-    // Attach child comments to their respective parents
-    childComments.forEach(childComment => {
-      if (nestedComments[childComment.parent_id]) {
-        nestedComments[childComment.parent_id].children.push(childComment);
-      } else {
-        // handling nested child comments
-        childComments.forEach(parentComment => {
-          if (parentComment.id === childComment.parent_id) {
-            if (!parentComment.children) {
-              parentComment.children = [];
-            }
-            parentComment.children.push(childComment);
-          }
-        });
-      }
-    });
+  //   // Attach child comments to their respective parents
+  //   childComments.forEach(childComment => {
+  //     if (nestedComments[childComment.parent_id]) {
+  //       nestedComments[childComment.parent_id].children.push(childComment);
+  //     } else {
+  //       // handling nested child comments
+  //       childComments.forEach(parentComment => {
+  //         if (parentComment.id === childComment.parent_id) {
+  //           if (!parentComment.children) {
+  //             parentComment.children = [];
+  //           }
+  //           parentComment.children.push(childComment);
+  //         }
+  //       });
+  //     }
+  //   });
 
-    const organizedComments = Object.values(nestedComments);
-    setCurrComments(organizedComments);
-    console.log(currComments)
-  };
+  //   const organizedComments = Object.values(nestedComments);
+  //   setCurrComments(organizedComments);
+  //   console.log(currComments)
+  // };
 
   // const submitComment = () => {
   //   //loading animation
@@ -128,43 +128,43 @@ const CommentSection: FC<CommentSectionProps> = ({ comments }) => {
   //     });
   // }
 
-  const [currComments, setCurrComments] = useState([]);
+  // const [currComments, setCurrComments] = useState([]);
 
-  const nestComments = (commentsObj) => {
-    const comments = Object.values(commentsObj);
-    const nestedComments = {};
-    const childComments = [];
+  // const nestComments = (commentsObj) => {
+  //   const comments = Object.values(commentsObj);
+  //   const nestedComments = {};
+  //   const childComments = [];
 
-    // Separate parent and child comments
-    comments.forEach(comment => {
-      if (comment.parent_id === null) {
-        nestedComments[comment.id] = { ...comment, children: [] };
-      } else {
-        childComments.push(comment);
-      }
-    });
+  //   // Separate parent and child comments
+  //   comments.forEach(comment => {
+  //     if (comment.parent_id === null) {
+  //       nestedComments[comment.id] = { ...comment, children: [] };
+  //     } else {
+  //       childComments.push(comment);
+  //     }
+  //   });
 
-    // Attach child comments to their respective parents
-    childComments.forEach(childComment => {
-      if (nestedComments[childComment.parent_id]) {
-        nestedComments[childComment.parent_id].children.push(childComment);
-      } else {
-        // handling nested child comments
-        childComments.forEach(parentComment => {
-          if (parentComment.id === childComment.parent_id) {
-            if (!parentComment.children) {
-              parentComment.children = [];
-            }
-            parentComment.children.push(childComment);
-          }
-        });
-      }
-    });
+  //   // Attach child comments to their respective parents
+  //   childComments.forEach(childComment => {
+  //     if (nestedComments[childComment.parent_id]) {
+  //       nestedComments[childComment.parent_id].children.push(childComment);
+  //     } else {
+  //       // handling nested child comments
+  //       childComments.forEach(parentComment => {
+  //         if (parentComment.id === childComment.parent_id) {
+  //           if (!parentComment.children) {
+  //             parentComment.children = [];
+  //           }
+  //           parentComment.children.push(childComment);
+  //         }
+  //       });
+  //     }
+  //   });
 
-    const organizedComments = Object.values(nestedComments);
-    setCurrComments(organizedComments);
-    console.log(currComments)
-  };
+  //   const organizedComments = Object.values(nestedComments);
+  //   setCurrComments(organizedComments);
+  //   console.log(currComments)
+  // };
 
   // const submitComment = () => {
   //   //loading animation
@@ -207,7 +207,7 @@ const CommentSection: FC<CommentSectionProps> = ({ comments }) => {
     <div className="mx-6 pt-3 pb-2">
       <div className="border-b border-gray-300 mb-4 "></div>
       <div >
-        {currComments}
+        {/* {currComments} */}
         {
           Object.values(comments).map(comment => (
             <Comment
