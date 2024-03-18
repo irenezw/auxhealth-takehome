@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import Comment from './Comment';
 import CommentInput from './CommentInput';
 
@@ -16,14 +16,48 @@ type CommentSectionProps = {
 
 const CommentSection: FC<CommentSectionProps> = ({ comments }) => {
 
-  // const [currComments, setCurrComments] = useState(comments);
+  const [currComments, setCurrComments] = useState([]);
 
-  // console.log(currComments)
+  const nestComments = (commentsObj) => {
+    const comments = Object.values(commentsObj);
+    const nestedComments = {};
+    const childComments = [];
+
+    // Separate parent and child comments
+    comments.forEach(comment => {
+      if (comment.parent_id === null) {
+        nestedComments[comment.id] = { ...comment, children: [] };
+      } else {
+        childComments.push(comment);
+      }
+    });
+
+    // Attach child comments to their respective parents
+    childComments.forEach(childComment => {
+      if (nestedComments[childComment.parent_id]) {
+        nestedComments[childComment.parent_id].children.push(childComment);
+      } else {
+        // handling nested child comments
+        childComments.forEach(parentComment => {
+          if (parentComment.id === childComment.parent_id) {
+            if (!parentComment.children) {
+              parentComment.children = [];
+            }
+            parentComment.children.push(childComment);
+          }
+        });
+      }
+    });
+
+    const organizedComments = Object.values(nestedComments);
+    setCurrComments(organizedComments);
+    console.log(currComments)
+  };
 
   // const submitComment = () => {
   //   //loading animation
   //   const requestOptions = {
-  //     method: 'PUT',
+  //     method: 'POST',
   //     headers: {
   //       'Content-Type': 'application/json',
   //       'mode': 'no-cors',
@@ -55,15 +89,17 @@ const CommentSection: FC<CommentSectionProps> = ({ comments }) => {
   //       console.error('Error hugging post', error);
   //     });
   // }
-
+// console.log(currComments)
 
   return (
     <div className="mx-6 pt-3 pb-2">
       <div className="border-b border-gray-300 mb-4 "></div>
       <div >
+        {currComments}
         {
           Object.values(comments).map(comment => (
             <Comment
+              key={comment.id}
               id={comment.id}
               parent_id={comment.parent_id}
               display_name={comment.display_name}
