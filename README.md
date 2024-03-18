@@ -21,7 +21,7 @@ Hello! Thank you so much for taking the time to check out this assignment. I had
   - <img width="1106" alt="Screenshot 2024-03-18 at 10 42 04 AM" src="https://github.com/irenezw/auxhealth-takehome/assets/87670653/b679cc48-1a2a-4764-a3d3-bf75f29195cd">
   - <img width="1115" alt="Screenshot 2024-03-18 at 10 41 05 AM" src="https://github.com/irenezw/auxhealth-takehome/assets/87670653/6e848e19-0b84-46c0-b173-dafdf04d0816">
 
-#Complete Features
+# Complete Features
 - Infinite scroll
 - Persisting state of "hugged" comments
 - Collapse and uncollapse posts
